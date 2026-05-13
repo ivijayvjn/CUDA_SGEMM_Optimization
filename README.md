@@ -19,7 +19,7 @@ https://siboehm.com/articles/22/CUDA-MMM
 | Step | Focus |
 |---|---|
 | 01 | Naive SGEMM |
-| 02 | Global Memory Coalescing |
+| 02 | Thread Mapping Coalescing study|
 | 03 | Shared Memory Tiling |
 | 04 | 1D Block Tiling |
 | 05 | 2D Block Tiling |
@@ -42,9 +42,10 @@ https://siboehm.com/articles/22/CUDA-MMM
 
 ## Benchmark Results
 
-| Kernel | Time (ms) | GFLOP/s | Arithmetic Intensity | Key Bottleneck |
+| Kernel | Time (ms) | GFLOP/s | Arithmetic Intensity | Key Observation |
 |---|---|---|---|---|
-| Naive SGEMM | 1.17 | 1822.12 | 0.249 | High global memory traffic |
+| Naive SGEMM | 1.178 | 1822.12 | 0.249 | High global memory traffic |
+| Coalesced Thread Mapping | 1.180 | 1818.86 | 0.249 | Similar performance since baseline already used relatively coalesced-friendly x-thread to column mapping |
 
 ---
 
